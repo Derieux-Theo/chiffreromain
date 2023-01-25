@@ -2,14 +2,14 @@ version: 2.1
 
 jobs:
   build:
-    working_directory: chiffreromain
+    working_directory: ~/chiffreromain
     docker:
       - image: maven:3.6.3-jdk-11
     steps:
       - checkout
       - run: mvn clean
       - run: mvn compile
-      - run: mvn test -f pom.xml
+      - run: mvn test -f pom.xml -Dmaven.multiModuleProjectDirectory=~/chiffreromain
   deploy:
     working_directory: ~/chiffreromain
     docker:
