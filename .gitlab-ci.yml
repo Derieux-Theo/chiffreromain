@@ -1,0 +1,15 @@
+image: node:latest
+
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+    - echo "Hello world"
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying..."
