@@ -15,6 +15,12 @@ jobs:
     steps:
       - checkout
       - run: mvn install
+  merge:
+    working_directory: ~/project
+    steps:
+      - run: git checkout main
+      - run: git merge --no-ff origin/${{CIRCLE_BRANCH}}
+      - run: git push origin main
 
 workflows:
   version: 2
@@ -24,3 +30,7 @@ workflows:
       - deploy:
           requires:
             - build
+      - merge:
+          requires:
+            - build
+            - deploy
