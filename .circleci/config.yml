@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: mvn clean
       - run: mvn compile
-      - run: mvn test
+      - run: mvn test -f pom.xml
   deploy:
     working_directory: ~/chiffreromain
     docker:
