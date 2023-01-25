@@ -31,5 +31,11 @@
             </plugin>
         </plugins>
     </build>
+    <!--<distributionManagement>
+        <repository>
+            <id>your-repository-id</id>
+            <url>https://your-repository-url</url>
+        </repository>
+    </distributionManagement>-->
 
 </project>
