@@ -7,8 +7,7 @@ jobs:
       - image: maven:3.6.3-jdk-11
     steps:
       - checkout
-      - run: cd test
-      - run: mvn test
+      - run: mvn test -Dtest=ConvertRomanTest
   deploy:
     working_directory: ~/chiffreromain
     docker:
@@ -22,10 +21,6 @@ jobs:
       - image: maven:3.6.3-jdk-11
     steps:
       - checkout
-      - run: ls
-      - run: pwd
-      - run: git init
-      - run: git branch -a
       - run: git checkout main
       - run: git merge dev
       - run: git push
