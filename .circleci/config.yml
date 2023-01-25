@@ -4,8 +4,10 @@ usage:
   version: 2.1
   orbs:
     maven: circleci/maven@1.4.0
+  jobs:
+    - maven/test:
+        verify_dependencies: true
   workflows:
-    example-workflow:
+    build:
       jobs:
-        - maven/test:
-            verify_dependencies: true
+        - maven/test
