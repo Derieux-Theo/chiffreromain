@@ -28,7 +28,7 @@ jobs:
       - run: git branch -a
       - run: git checkout main
       - run: git merge dev
-      - run: git push main
+      - run: git push
 
 workflows:
   version: 2
