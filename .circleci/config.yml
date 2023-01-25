@@ -1,14 +1,26 @@
-description: >
-  Sample example description.
 version: 2.1
-orbs:
-  maven: circleci/maven@1.4.0
 
 jobs:
-  - maven/test:
-      verify_dependencies: true
+  build:
+    working_directory: ~/chiffreromain
+    docker:
+      - image: maven:3.6.3-jdk-11
+    steps:
+      - checkout
+      - run: mvn test
+  deploy:
+    working_directory: ~/chiffreromain
+    docker:
+      - image: maven:3.6.3-jdk-11
+    steps:
+      - checkout
+      - run: mvn deploy
 
 workflows:
-  build:
+  version: 2
+  build_and_deploy:
     jobs:
-      - maven/test
+      - build
+      - deploy:
+          requires:
+            - build
