@@ -19,7 +19,7 @@ jobs:
     working_directory: ~/project
     steps:
       - run: git checkout main
-      - run: git merge --no-ff origin/${{CIRCLE_BRANCH}}
+      - run: git merge origin/dev
       - run: git push origin main
 
 workflows:
