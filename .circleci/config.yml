@@ -1,13 +1,14 @@
 description: >
   Sample example description.
-usage:
-  version: 2.1
-  orbs:
-    maven: circleci/maven@1.4.0
-  jobs:
-    - maven/test:
-        verify_dependencies: true
-  workflows:
-    build:
-      jobs:
-        - maven/test
+version: 2.1
+orbs:
+  maven: circleci/maven@1.4.0
+
+jobs:
+  - maven/test:
+      verify_dependencies: true
+
+workflows:
+  build:
+    jobs:
+      - maven/test
