@@ -1,15 +1,11 @@
-image: node:latest
+orbs:
+  maven: circleci/maven@1.4.0
 
 stages:
-  - test
-  - deploy
+  - workflows
 
-test:
-  stage: test
-  script:
-    - echo "Hello world"
-
-deploy:
-  stage: deploy
-  script:
-    - echo "Deploying application..."
+workflows:
+  example-workflow:
+    jobs:
+      - maven/test:
+          verify_dependencies: true
