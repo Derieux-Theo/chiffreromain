@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: mvn clean
       - run: mvn compile
-      - run: mvn test -Dtest=ConvertRomanTest
+      - run: mvn test
   deploy:
     working_directory: ~/chiffreromain
     docker:

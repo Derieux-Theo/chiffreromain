@@ -6,7 +6,7 @@ public class ConvertRomanTest {
 
     //assert equals true
     @Test
-    public void test1() {
+    public void Test1() {
         assertTrue(true);
     }
 
