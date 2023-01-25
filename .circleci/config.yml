@@ -7,6 +7,7 @@ jobs:
       - image: maven:3.6.3-jdk-11
     steps:
       - checkout
+      - run: cd test
       - run: mvn test
   deploy:
     working_directory: ~/chiffreromain
@@ -16,11 +17,18 @@ jobs:
       - checkout
       - run: mvn install
   merge:
-    working_directory: ~/project
+    working_directory: ~/chiffreromain
+    docker:
+      - image: maven:3.6.3-jdk-11
     steps:
+      - checkout
+      - run: ls
+      - run: pwd
+      - run: git init
+      - run: git branch -a
       - run: git checkout main
-      - run: git merge origin/dev
-      - run: git push origin main
+      - run: git merge dev
+      - run: git push origin/main
 
 workflows:
   version: 2
@@ -32,5 +40,4 @@ workflows:
             - build
       - merge:
           requires:
-            - build
             - deploy
