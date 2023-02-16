@@ -1,26 +1,20 @@
 image: maven:3.6.3-jdk-11
 
 stages:
+  - build
+  - deploy
 
+before script:
+  - mvn clean
+  - mvn install
 
-jobs:
-  build:
-    image: maven:3.6.3-jdk-11
-    stage: build
-    script:
-      - mvn clean
-      - mvn compile
-      - mvn test
+build:
+  stage: build
+  script:
+    - mvn compile
+    - mvn test
 
-  deploy:
-    image: maven:3.6.3-jdk-11
-    stage: deploy
-    script:
-      - mvn install
-
-workflows:
-  build_and_deploy:
-    jobs:
-      - build
-      - deploy:
-          needs: [build]
+deploy:
+  stage: deploy
+  script:
+    - mvn install
