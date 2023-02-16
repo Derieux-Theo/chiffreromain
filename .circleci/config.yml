@@ -9,11 +9,6 @@ jobs:
       - checkout
       - run: mvn clean
       - run: mvn compile
-  test:
-    working_directory: ~/chiffreromain
-    docker:
-      - image: maven:3.6.3-jdk-11
-    steps:
       - run: mvn test
   deploy:
     working_directory: ~/chiffreromain
