@@ -2,6 +2,7 @@ image: maven:3.6.3-jdk-11
 
 stages:
   - build
+  - test
   - deploy
 
 before script:
@@ -12,6 +13,11 @@ build:
   stage: build
   script:
     - mvn compile
+    - mvn test
+
+test:
+  stage: test
+  script:
     - mvn test
 
 deploy:
