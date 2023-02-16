@@ -8,6 +8,11 @@
     <artifactId>chiffreromain</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
     <dependencies>
         <!-- Add any dependencies your project needs here -->
         <dependency>
@@ -36,7 +41,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <testSourceDirectory>test</testSourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
     </build>
     <!--<distributionManagement>
         <repository>
