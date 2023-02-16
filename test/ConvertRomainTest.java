@@ -3,18 +3,17 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ConvertRomanTest {
+public class ConvertRomainTest {
 
-    //assert equals true
+    //assertTrue true
     @Test
-    public void Test1() {
+    public void testTrue() {
         assertTrue(true);
     }
 
-    // convert 1 to I
+
     @Test
-    public void Test2() {
+    public void testConvert() {
         assertEquals("I", ConvertRoman.convert(1));
     }
-
 }
