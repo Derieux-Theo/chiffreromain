@@ -9,7 +9,14 @@ jobs:
       - checkout
       - run: mvn clean
       - run: mvn compile
+  test:
+    working_directory: ~/chiffreromain
+    docker:
+      - image: maven:3.6.3-jdk-11
+    steps:
       - run: mvn test
+    store_test_results:
+      path: target/surefire-reports
   deploy:
     working_directory: ~/chiffreromain
     docker:
